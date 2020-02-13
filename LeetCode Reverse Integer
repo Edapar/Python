@@ -1,0 +1,12 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        y = [int(i) for i in str(abs(x))]
+        z = y[::-1]
+        ans = sum(d*10**i for i, d in enumerate(z[::-1]))
+        if ans.bit_length()<32:
+            if x == abs(x):
+                return ans
+            else:
+                return -ans
+        else:
+            return 0

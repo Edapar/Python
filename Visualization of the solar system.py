@@ -9,7 +9,6 @@ c2 = 10000000
 
 #Star + Planet positions
 sun = sphere(pos=vector(0, 0, 0), radius=69550000, color=color.yellow)
-
 mercury = sphere(pos=vector(c2*57.9, 0, 0), radius=c1*2440, color=color.red)
 venus = sphere(pos=vector(c2*108.2, 0, 0), radius=c1*6052)
 earth = sphere(pos=vector(c2*149.6, 0, 0), radius=c1*6371)
@@ -25,28 +24,36 @@ rMars = c2 * 227.9
 rJupiter = .5 * c2 * 778.5
 rSaturn = .5 * c2 * 1433.4
 
+#FF loop of planet position or else it would be snail's pace
 for theta in arange(0, 10000000*pi, 2):
-    rate(500)
+    rate(500) #same reasoning
+
+    #Mercury's Period 88.0 Earth Days
     xMercury = rMercury*cos(theta/88.)
     yMercury = rMercury*sin(theta/88.)
     mercury.pos = vector(xMercury, yMercury, 0)
 
+    #Venus's Period 224.7 Earth Days
     xVenus = rVenus*cos(theta/224.7)
     yVenus = rVenus*sin(theta/224.7)
     venus.pos = vector(xVenus, yVenus, 0)
 
+    #Earth's Period 365.3 Earth Days
     xEarth = rEarth*cos(theta/365.3)
     yEarth = rEarth*sin(theta/365.3)
     earth.pos = vector(xEarth, yEarth, 0)
 
+    #Mars's Period 687.0 Earth Days
     xMars = rMars*cos(theta/687.0)
     yMars = rMars*sin(theta/687.0)
     mars.pos = vector(xMars, yMars, 0)
 
+    #Jupiter's Period 4331.6 Earth Days
     xJupiter = rJupiter*cos(theta/4331.6)
     yJupiter = rJupiter*sin(theta/4331.6)
     jupiter.pos = vector(xJupiter, yJupiter, 0)
 
+    #Saturn's Period 10759.2 Earth Days
     xSaturn = rSaturn*cos(theta/10759.2)
     ySaturn = rSaturn*sin(theta/10759.2)
     saturn.pos = vector(xSaturn, ySaturn, 0)
